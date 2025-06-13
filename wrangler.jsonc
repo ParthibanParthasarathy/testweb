@@ -21,7 +21,7 @@
       // The service should match the "name" of your worker
     //  "service": "tests"
    // }
-  ],
+  //],
   "r2_buckets": [
     //Create a R2 binding with the binding name "NEXT_INC_CACHE_R2_BUCKET"
     // {
