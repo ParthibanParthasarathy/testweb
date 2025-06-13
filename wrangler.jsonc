@@ -1,11 +1,32 @@
 {
-  "name": "tests",
-  "compatibility_date": "2025-06-11",
+  
   "main": ".open-next/worker.js",
+  "name": "tests",
+  "compatibility_date": "2025-6-13",
+  "compatibility_flags": [
+    // Enable Node.js API
+    // see https://developers.cloudflare.com/workers/configuration/compatibility-flags/#nodejs-compatibility-flag
+    "nodejs_compat",
+    // Allow to fetch URLs in your app
+    // see https://developers.cloudflare.com/workers/configuration/compatibility-flags/#global-fetch-strictly-public
+    "global_fetch_strictly_public"
+  ],
   "assets": {
-		"binding": "ASSETS",
-		"directory": ".open-next/assets"},
-    "compatibility_flags": [
-    "nodejs_compat"
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      // The service should match the "name" of your worker
+      "service": "tests"
+    }
+  ],
+  "r2_buckets": [
+    //Create a R2 binding with the binding name "NEXT_INC_CACHE_R2_BUCKET"
+    // {
+    //   "binding": "NEXT_INC_CACHE_R2_BUCKET",
+    //   "bucket_name": "<BUCKET_NAME>"
+    // }
   ]
 }
